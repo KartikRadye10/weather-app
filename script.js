@@ -12,7 +12,7 @@ async function searchCity() {
   message.textContent = "⏳ Searching...";
 
   try {
-    // Step 1: Get lat/lon from city name using Open-Meteo geocoding API
+    
     const geoRes = await fetch(`https://geocoding-api.open-meteo.com/v1/search?name=${city}&count=10`);
     const geoData = await geoRes.json();
 
@@ -22,7 +22,6 @@ async function searchCity() {
 
     message.textContent = "";
 
-    // Show weather for up to 10 matches
     for (let place of geoData.results.slice(0, 10)) {
       const response = await fetch(
         `https://api.open-meteo.com/v1/forecast?latitude=${place.latitude}&longitude=${place.longitude}&current_weather=true&timezone=auto`
@@ -37,9 +36,9 @@ async function searchCity() {
       card.className = "card";
       card.innerHTML = `
         <h2>${place.name}, ${place.country}</h2>
-        <p>🌡 Temperature: ${weather.temperature} °C</p>
+        <p>🌡 Temperature: <b>${weather.temperature} °C</b></p>
         <p>🌬 Wind: ${weather.windspeed} km/h</p>
-        <p>🕒 Time: ${weather.time}</p>
+        <p>🕒 Time: ${new Date(weather.time).toLocaleString()}</p>
       `;
       weatherList.appendChild(card);
     }
