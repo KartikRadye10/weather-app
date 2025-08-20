@@ -1,0 +1,53 @@
+body {
+  font-family: Arial, sans-serif;
+  background: #f0f4f7;
+  display: flex;
+  justify-content: center;
+  padding: 20px;
+}
+
+.container {
+  width: 95%;
+  max-width: 900px;
+  text-align: center;
+}
+
+h1 {
+  margin-bottom: 20px;
+}
+
+.search {
+  margin-bottom: 20px;
+}
+
+.search input {
+  padding: 10px;
+  width: 60%;
+  font-size: 16px;
+}
+
+.search button {
+  padding: 10px 15px;
+  font-size: 16px;
+  margin-left: 5px;
+  cursor: pointer;
+}
+
+#message {
+  margin: 10px 0;
+  font-weight: bold;
+  color: red;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 15px;
+}
+
+.card {
+  background: white;
+  padding: 15px;
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
